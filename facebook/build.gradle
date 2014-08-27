@@ -1,12 +1,21 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+}
 
 dependencies {
- compile "com.android.support:support-v4:19.0.0"
+ compile "com.android.support:support-v4:19.1.0"
 }
 
 android {
-    compileSdkVersion 14
-    buildToolsVersion "19.0.2"
+    compileSdkVersion 18
+    buildToolsVersion "19.1.0"
 
     sourceSets {
         main {
@@ -30,5 +39,11 @@ android {
         // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+
+}
+android {
+    lintOptions {
+        abortOnError false
     }
 }
